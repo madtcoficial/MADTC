@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Resultados de búsqueda de servicios en MadTc">
+    <meta name="keywords" content="MadTc, servicios, búsqueda, locales, restaurantes, supermercados, mascotas">
+    <meta name="author" content="MadTc">
+    <title>Resultados de Búsqueda - MadTc</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #71b9c5, #2b6fb4);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        #products-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-top: 20px;
+            justify-content: center;
+        }
+        .product-card {
+            background: #ffffff20;
+            border-radius: 10px;
+            padding: 15px;
+            width: calc(100% - 40px);
+            max-width: 300px;
+            text-align: center;
+            color: white;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 300px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        .product-img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        #no-results {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Resultados de Búsqueda</h1>
+        <input type="text" id="search-input" class="form-control" placeholder="Buscar locales..." oninput="filterProducts(this.value.toLowerCase())">
+        <div id="products-container" class="mt-4">
+            <div class="product-card" onclick="location.href='categorias/restaurant.html'">
+                <img src="../img/restaurant.jpg" alt="Restaurantes" class="product-img">
+                <h5>Restaurantes</h5>
+                <p>restaurantes de tu ciudad.</p>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/mascotas.html'">
+                <img src="../img/alimentos-para-mascotas.png" alt="mascotas" class="product-img">
+                <h5>Alimento </h5>
+                <p>para mascostas.</p>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/almacen.html'">
+                <img src="../img/almacen.png" alt="Almacén" class="product-img">
+                <h5>Almacén</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/automotriz.html'">
+                <img src="https://th.bing.com/th/id/OIP.8oQb61a2Da2uUoNM19O0bQHaHa?rs=1&pid=ImgDetMain" alt="Automotriz" class="product-img">
+                <h5>Automotriz</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/barberia.html'">
+                <img src="https://image.freepik.com/vector-gratis/icono-barberia_1459-2296.jpg" alt="Barbería" class="product-img">
+                <h5>Barbería</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/cafeteria.html'">
+                <img src="https://th.bing.com/th/id/OIP.AbTNF2jIOcKzdoe7cAM7UwHaHw?rs=1&pid=ImgDetMain" alt="Cafetería" class="product-img">
+                <h5>Cafetería</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/carniceria.html'">
+                <img src="https://cdn-icons-png.flaticon.com/512/2403/2403225.png" alt="Carnicería" class="product-img">
+                <h5>Carnicería</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/cmed.html'">
+                <img src="https://cdn-icons-png.flaticon.com/512/8531/8531840.png" alt="Centro Médico" class="product-img">
+                <h5>Centro Médico</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/vet.html'">
+                <img src="https://static.vecteezy.com/system/resources/previews/008/128/668/non_2x/veterinary-clinic-logo-vector.jpg" alt="Clínica Veterinaria" class="product-img">
+                <h5>Clínica Veterinaria</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/comidarapida.html'">
+                <img src="https://cdn-icons-png.flaticon.com/512/5222/5222189.png" alt="Comida Rápida" class="product-img">
+                <h5>Comida Rápida</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/dulceria.html'">
+                <img src="https://th.bing.com/th/id/OIP.sTIwArYbFKZTymYZLpTeMwHaHa?rs=1&pid=ImgDetMain" alt="Dulcería" class="product-img">
+                <h5>Dulcería</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/farmacia.html'">
+                <img src="https://cdn-icons-png.flaticon.com/512/4320/4320337.png" alt="Farmacia" class="product-img">
+                <h5>Farmacia</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/ferreteria.html'">
+                <img src="https://th.bing.com/th/id/OIP.TUEGE_AfDwfM4uNjuM_QQAHaHa?rs=1&pid=ImgDetMain" alt="Ferretería" class="product-img">
+                <h5>Ferretería</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/floreria.html'">
+                <img src="https://th.bing.com/th/id/OIP.2-Nf4iXGW7uCCUS-vBSIWwHaHa?rs=1&pid=ImgDetMain" alt="Florería" class="product-img">
+                <h5>Florería</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/funeraria.html'">
+                <img src="https://th.bing.com/th/id/OIP.WxteK5F7elN71gOiOE88TAHaHa?rs=1&pid=ImgDetMain" alt="Funeraria" class="product-img">
+                <h5>Funeraria</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/minimercado.html'">
+                <img src="https://thumbs.dreamstime.com/z/icono-de-tienda-y-minimarket-para-ciudad-urbana-vector-e-ilustraci%C3%B3n-fines-comerciales-en-l%C3%ADnea-marketing-herramientas-descuento-264085103.jpg" alt="Minimercado" class="product-img">
+                <h5>Minimercado</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/panaderia.html'">
+                <img src="https://th.bing.com/th/id/OIP.qHq8cXsEqlR79DsO4Z6wkAHaHa?rs=1&pid=ImgDetMain" alt="Panadería" class="product-img">
+                <h5>Panadería</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/restobar.html'">
+                <img src="https://static.vecteezy.com/system/resources/previews/007/881/719/non_2x/bar-counter-icon-style-free-vector.jpg" alt="Restobar" class="product-img">
+                <h5>Restobar</h5>
+            </div>
+             <!-- aqui se empieza -->
+            <div class="product-card" onclick="location.href='categorias/supermercado.html'">
+                <img src="https://th.bing.com/th/id/OIP.gcLUaJw4bQosA4tJmcIFIQHaHa?rs=1&pid=ImgDetMain" alt="Supermercado" class="product-img">
+                <h5>Supermercado</h5>
+            </div>
+            <!-- aqui termina agregar sushi tela tienda de ropa zapateria servicio tecnico-->
+            <div class="product-card" onclick="location.href='categorias/serviciotecnico.html'">
+                <img src="https://cdnx.jumpseller.com/electronline/image/35122489/servicio.png?1683905979" alt="Supermercado" class="product-img">
+                <h5>Servicio tecnico</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/telas.html'">
+                <img src="https://media.istockphoto.com/id/1097819346/es/vector/alfombra-gimnasio-rodillo-icono-de-l%C3%ADnea-plana-signo-de-la-alfombra-de-yoga-logotipo-linear.jpg?s=2048x2048&w=is&k=20&c=jlBnuax3HQ6E_S8eVeZv1yDIn0IV8iK-Ijo2TyR_43s=" alt="Supermercado" class="product-img">
+                <h5>Telas</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/Sushis.html'">
+                <img src="https://cdn-icons-png.flaticon.com/512/2252/2252075.png" alt="Supermercado" class="product-img">
+                <h5>Sushis</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/fruteria.html'">
+                <img src="https://cdn-icons-png.flaticon.com/512/6330/6330756.png" alt="Supermercado" class="product-img">
+                <h5>Fruterias</h5>
+            </div>
+            <div class="product-card" onclick="location.href='categorias/gim.html'">
+                <img src="https://cdn-icons-png.flaticon.com/512/69/69840.png" alt="Supermercado" class="product-img">
+                <h5>Gimnacios</h5>
+            </div>
+            
+    </div>
+
+    <script>
+        function filterProducts(query) {
+            const products = document.querySelectorAll('.product-card');
+            let found = false;
+            
+            products.forEach(product => {
+                const title = product.querySelector('h5').textContent.toLowerCase();
+                if (title.includes(query) || query === "") {
+                    product.style.display = "flex";
+                    found = true;
+                } else {
+                    product.style.display = "none";
+                }
+            });
+            
+            document.getElementById('no-results').style.display = found ? 'none' : 'block';
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('query');
+        if (query) {
+            document.getElementById('search-input').value = query;
+            filterProducts(query.toLowerCase());
+        }
+    </script>
+    <footer class="footer mt-5 py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <!-- Sección de información general -->
+                <div class="col-md-4">
+                    <h5>Sobre Nosotros</h5>
+                    <p>Somos una plataforma dedicada a conectar a los usuarios con los mejores restaurantes, minimercados, clínicas veterinarias y más.</p>
+                </div>
+    
+                <!-- Sección de enlaces rápidos -->
+                <div class="col-md-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Inicio</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Restaurantes</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Minimercados</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Veterinarias</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Contacto</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Sección de contacto -->
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <p>📍 Dirección: [Tu Dirección Aquí]</p>
+                    <p>📞 Teléfono: [Tu Teléfono Aquí]</p>
+                    <p>📧 Email: [Tu Correo Aquí]</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/" target="_blank" class="text-white me-3">Facebook</a>
+                        <a href="https://www.instagram.com/" target="_blank" class="text-white me-3">Instagram</a>
+                        <a href="https://www.twitter.com/" target="_blank" class="text-white">Twitter</a>
+                    </div>
+                </div>
+            </div>
+    
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 Tu Plataforma - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+    
+    
+</body>
+</html>

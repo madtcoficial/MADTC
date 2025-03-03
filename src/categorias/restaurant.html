@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Restaurantes - MadTc</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            background: linear-gradient(135deg, #71b9c5, #2b6fb4);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+    
+        #restaurants-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+    
+        .restaurant-card {
+            background: #ffffff20;
+            border-radius: 10px;
+            padding: 15px;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            color: white;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+    
+        .restaurant-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+        }
+    
+        .restaurant-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
+        }
+    
+        .restaurant-img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+    
+        .restaurant-card h5 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    
+        .restaurant-card p {
+            font-size: 14px;
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+    
+        /* Responsivo */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+    
+            .restaurant-card {
+                height: auto;
+                padding: 10px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Restaurantes Recomendados</h1>
+        <div id="restaurants-container" class="mt-4">
+            <!-- Card 1 -->
+            <a href="../negocios/amapola.html" class="restaurant-card">
+                <img src="../../img/amapola.JPG" alt="Restaurante Italiano" class="restaurant-img">
+                <h5>La Amapola</h5>
+                <p>Restaurante de comida típica.</p>
+            </a>
+            <!-- Card 2 -->
+            <a href="../negocios/cobreloa.html" class="restaurant-card">
+                <img src="../../img/cobreloa.JPG" alt="Restaurante Mexicano" class="restaurant-img">
+                <h5>El Cobreloa</h5>
+                <p>Restaurante de comida típica.</p>
+            </a>
+            <!-- Card 3 -->
+            <a href="../negocios/tita.html" class="restaurant-card">
+                <img src="../../img/latita.png" alt="Restaurante Japonés" class="restaurant-img">
+                <h5>Sabores de la tita</h5>
+                <p>Restaurante de comida típica.</p>
+            </a>
+            <a href="../negocios/sabores.html" class="restaurant-card">
+                <img src="../../img/sabores.JPG" alt="Restaurante Japonés" class="restaurant-img">
+                <h5>Sabores de Hualqui</h5>
+                <p>Restaurante de comida típica.</p>
+            </a>
+            
+        </div>
+    </div>
+
+</body>
+</html>
+

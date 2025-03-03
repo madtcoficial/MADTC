@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo con Leaflet</title>
+
+    <!-- Incluir el CSS de Leaflet desde la CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    
+    <style>
+        /* Estilo básico para el mapa */
+        #map {
+            height: 500px; /* Definir una altura para el mapa */
+            width: 100%;   /* El mapa ocupará todo el ancho */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor del mapa -->
+    <div id="map"></div>
+
+    <!-- Incluir el JS de Leaflet desde la CDN -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script>
+        // Coordenadas de Hualqui
+        const lat = -36.97477481483404;
+        const lon = -72.93876023715136;
+
+        // Datos de los lugares (puedes agregar más aquí)
+        const places = [
+            {
+                lat: -36.97477481483404,
+                lon: -72.93876023715136,
+                name: "La Casona",
+                address: "La Bulnes 430",
+                contact: "41803445",
+                schedule: "Lunes a Domingo: 12:00 PM - 11:00 PM",
+                socialMedia: "Facebook: @lacasonarestobar",
+                category: "Restobar"
+            },
+            {
+                lat: -36.9730,
+                lon: -72.9350,
+                name: "Parque Hualqui",
+                address: "Centro de Hualqui",
+                contact: "No disponible",
+                schedule: "Abierto todos los días",
+                socialMedia: "No disponible",
+                category: "Parque"
+            },
+            {
+                lat: -36.9800,
+                lon: -72.9450,
+                name: "Plaza de Hualqui",
+                address: "Plaza Central",
+                contact: "No disponible",
+                schedule: "Abierto todos los días",
+                socialMedia: "No disponible",
+                category: "Plaza"
+            }
+        ];
+
+        // Paso 1: Inicializar el mapa con las coordenadas de Hualqui
+        const map = L.map('map').setView([lat, lon], 13);
+
+        // Paso 2: Agregar la capa base (OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Paso 3: Crear un icono personalizado
+        const customIcon = L.icon({
+            iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Map_pin_icon.svg',  // URL del icono
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        // Paso 4: Agregar los marcadores al mapa con la información personalizada en el popup
+        places.forEach(place => {
+            const marker = L.marker([place.lat, place.lon], { icon: customIcon }).addTo(map);
+
+            // Contenido del popup con la información personalizada
+            const popupContent = `
+                <b>Nombre:</b> ${place.name}<br>
+                <b>Dirección:</b> ${place.address}<br>
+                <b>Contacto:</b> ${place.contact}<br>
+                <b>Horario:</b> ${place.schedule}<br>
+                <b>Redes sociales:</b> ${place.socialMedia}<br>
+                <b>Categoría:</b> ${place.category}
+            `;
+            marker.bindPopup(popupContent).openPopup();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Almacenes - MadTc</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            background: linear-gradient(135deg, #71b9c5, #2b6fb4);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+    
+        #almacenes-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+    
+        .almacen-card {
+            background: #ffffff20;
+            border-radius: 10px;
+            padding: 15px;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            color: white;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+    
+        .almacen-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+        }
+    
+        .almacen-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
+        }
+    
+        .almacen-img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+    
+        .almacen-card h5 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    
+        .almacen-card p {
+            font-size: 14px;
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+    
+        /* Responsivo */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+    
+            .almacen-card {
+                height: auto;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Almacenes Recomendados</h1>
+        <div id="almacenes-container" class="mt-4">
+            <!-- Card 1: La Esquina -->
+            <a href="../negocios/la-esquina.html" class="almacen-card">
+                <img src="../../img/laesquina.JPG" alt="La Esquina" class="almacen-img">
+                <h5>La Esquina</h5>
+                <p>Almacén con productos variados y de calidad.</p>
+            </a>
+            <!-- Card 2: Almacén Jany -->
+            <a href="../negocios/almacen-jany.html" class="almacen-card">
+                <img src="../../img/al" alt="Almacén Jany" class="almacen-img">
+                <h5>Almacén Jany</h5>
+                <p>Almacén con productos frescos y atención personalizada.</p>
+            </a>
+
+            <a href="../negocios/lagitana.html" class="almacen-card">
+                <img src="../../img/lagitana.JPG" alt="Almacén Jany" class="almacen-img">
+                <h5>la gitana</h5>
+                <p>Almacén con productos variados y de calidad.</p>
+            </a>
+            <a href="../negocios/bazarchany.html" class="almacen-card">
+                <img src="../../img/bazarchany.JPG" alt="Almacén Jany" class="almacen-img">
+                <h5>Bazar Chany</h5>
+                <p>Bazar - Libreria.</p>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
