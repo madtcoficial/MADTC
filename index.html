@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MadTc - Encuentra todos los servicios en tu ciudad</title>
+    <meta name="description" content="Explora y encuentra restaurantes, almacenes, comida para mascotas y más en tu ciudad con MadTc. Todo lo que necesitas, en un solo lugar.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(135deg, #71b9c5, #2b6fb4);
+            color: white;
+            overflow: hidden;
+        }
+
+        .logo {
+            width: 200px;
+            animation: entrar 2s ease-out forwards;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        @keyframes entrar {
+            0% {
+                transform: rotate(0deg) translateY(-200px);
+            }
+            50% {
+                transform: rotate(720deg) translateY(50vh);
+            }
+            100% {
+                transform: rotate(0deg) translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <img src="img/logo.png" alt="Logo" class="logo" onclick="restartAnimation()">
+        <h1>Busca servicios en tu ciudad con MadTc</h1>
+        <div class="search-box d-flex justify-content-center mt-4">
+            <input id="searchInput" class="form-control form-control-lg me-2" type="search" placeholder="Buscar servicios..." aria-label="Search" style="max-width: 400px;">
+            <button class="btn btn-primary btn-lg" onclick="searchServices()">Buscar</button>
+        </div>
+    </div>
+
+    <script>
+        function searchServices() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (query) {
+                window.location.href = `src/resultados.html?query=${encodeURIComponent(query)}`;
+            }
+        }
+
+        function restartAnimation() {
+            const logo = document.querySelector('.logo');
+            logo.style.animation = 'none';
+            logo.offsetHeight;
+            logo.style.animation = 'entrar 2s ease-out forwards';
+        }
+    </script>
+    
+</body>
+</html>
